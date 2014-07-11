@@ -368,6 +368,7 @@ libc_upstream_netbsd_src_files := \
 ifeq ($(TARGET_ARCH),arm)
 libc_common_src_files += \
 	string/strncpy.c \
+	bionic/strchr.cpp \
 	string/strrchr.c \
 	bionic/memrchr.c \
 	string/index.c \
@@ -429,6 +430,7 @@ libc_common_src_files += \
 	string/strcat.c \
 	string/strncat.c \
 	string/strncpy.c \
+	bionic/strchr.cpp \
 	string/strrchr.c \
 	bionic/memrchr.c \
 	string/index.c \
