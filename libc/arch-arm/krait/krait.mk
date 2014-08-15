@@ -3,6 +3,7 @@ libc_bionic_src_files_arm += \
     arch-arm/krait/bionic/strcmp.S \
     arch-arm/krait/bionic/__strcat_chk.S \
     arch-arm/krait/bionic/__strcpy_chk.S \
+    arch-arm/krait/bionic/memmove.S
 
 #For some targets we don't need this optimization.
 #Corresponding flag is defined in device specific folder.
@@ -25,5 +26,4 @@ libc_bionic_src_files_arm += \
     arch-arm/generic/bionic/memchr.S \
     arch-arm/generic/bionic/memcmp.S \
 
-libc_bionic_src_files_arm += \
-    arch-arm/denver/bionic/memmove.S \
+
