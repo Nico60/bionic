@@ -218,7 +218,7 @@ libm_common_src_files += fake_long_double.c
 
 # TODO: re-enable i387/e_sqrtf.S for x86, and maybe others.
 
-libm_common_cflags := -DFLT_EVAL_METHOD=0
+libm_common_cflags += -DFLT_EVAL_METHOD=0
 libm_common_includes := $(LOCAL_PATH)/upstream-freebsd/lib/msun/src/
 
 libm_arm_includes := $(LOCAL_PATH)/arm
@@ -230,7 +230,7 @@ ifeq ($(TARGET_CPU_VARIANT),krait)
 	arm/s_sin.S	\
 	arm/e_sqrtf.S	\
 	arm/e_sqrt.S
-  libm_arm_cflags += -DKRAIT_NEON_OPTIMIZATION -fno-if-conversion
+  libm_arm_cflags += -DQCOM_NEON_OPTIMIZATION -fno-if-conversion
 else
   ifeq ($(TARGET_USE_QCOM_BIONIC_OPTIMIZATION),true)
     libm_arm_src_files += \
@@ -239,14 +239,14 @@ else
       arm/s_sin.S \
       arm/e_sqrtf.S \
       arm/e_sqrt.S
-    libm_arm_cflags += -DKRAIT_NEON_OPTIMIZATION -fno-if-conversion
+    libm_arm_cflags += -DQCOM_NEON_OPTIMIZATION -fno-if-conversion
   else
     libm_common_src_files += \
       upstream-freebsd/lib/msun/src/s_cos.c \
       upstream-freebsd/lib/msun/src/s_sin.c \
       upstream-freebsd/lib/msun/src/e_sqrtf.c \
       upstream-freebsd/lib/msun/src/e_sqrt.c
-    endif
+  endif
 endif
 
 ifeq ($(ARCH_ARM_HAVE_NEON),true)
